@@ -2,7 +2,7 @@ package edu.co.icesi.enrollmentsystem.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "courses")
+@Table(name = "COURSES")
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

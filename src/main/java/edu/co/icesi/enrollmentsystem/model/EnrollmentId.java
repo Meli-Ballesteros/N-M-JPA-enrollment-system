@@ -49,9 +49,16 @@ public class EnrollmentId implements Serializable {
         // JPA los utiliza internamente para comparar claves compuestas en memoria y en caché.
         @Override
         public boolean equals(Object o) {
+            // 1. ¿Apuntan exactamente a la misma posición de memoria RAM? Si sí, son iguales.
             if (this == o) return true;
+
+            // 2. ¿El objeto a comparar es nulo o es de una clase distinta? Si es así, no son iguales.
             if (o == null || getClass() != o.getClass()) return false;
+
+            // 3. Convertimos el objeto genérico a tipo EnrollmentId para poder comparar sus variables.
             EnrollmentId that = (EnrollmentId) o;
+
+            // 4. COMPARA LOS VALORES REALES: ¿Tienen el mismo studentId Y el mismo courseId?
             return Objects.equals(studentId, that.studentId) && Objects.equals(courseId, that.courseId);
         }
 
